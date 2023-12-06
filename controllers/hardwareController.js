@@ -45,7 +45,34 @@ exports.getCustomers = (req, res, next) => {
 }
 exports.getItems = (req, res, next) => {
     // Item.runItemQuery()
-    Item.fetchAll()
+    Item.runItemQuery()
+        .then((rows, fieldData ) => {
+            console.log( "ROws="); console.log( rows );
+            // res.render("hardware/showItemAdmin", {
+            //     title: "Item Info",
+            //     from: "showItems",
+            //     items: rows[0]
+            // })
+            res.status(200).json( rows[0]);
+        })
+}
+exports.getItemDetails = ( req, res, next ) => {
+    let id = req.params.id;
+    console.log('getitemdetails controller')
+    console.log(id)
+    // fetch all the records and find the idth one
+    Item.findById(id)
+        .then ((rows, fieldData) =>{
+            console.log("ROWS get item details =>");
+            res.status(200).json( rows[0][0]);
+        }).catch( err => {
+        console.log( "DB Error=>");
+        console.log( err );
+    })
+}
+exports.getSales = (req, res, next) => {
+    // Item.runItemQuery()
+    Sale.fetchAll()
         .then((rows, fieldData ) => {
             console.log( "ROws="); console.log( rows );
             // res.render("hardware/showItemAdmin", {

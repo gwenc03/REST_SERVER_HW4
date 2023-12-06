@@ -5,6 +5,9 @@ const hardwareController = require("../controllers/hardwareController")
 
 router.get( '/customers', hardwareController.getCustomers);
 router.get('/items', hardwareController.getItems);
+router.get( '/items/:id', hardwareController.getItemDetails);
+router.get('/sales', hardwareController.getSales);
+
 // router.get('/showSales', hardwareController.getSales);
 // router.get('/editCustomer/:cid', hardwareController.editCustomer);
 // router.get('/addCustomer', hardwareController.getAddCustomer);
