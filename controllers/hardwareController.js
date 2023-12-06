@@ -72,7 +72,7 @@ exports.getItemDetails = ( req, res, next ) => {
 }
 exports.getSales = (req, res, next) => {
     // Item.runItemQuery()
-    Sale.fetchAll()
+    Sale.runSaleQuery()
         .then((rows, fieldData ) => {
             console.log( "ROws="); console.log( rows );
             // res.render("hardware/showItemAdmin", {
