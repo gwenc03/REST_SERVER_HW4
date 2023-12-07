@@ -16,7 +16,7 @@ module.exports = class Item {
 
     //
     static delete(iid) {
-        return db.execute("delete from Item where iid = ?",
+        return db.execute("delete from Item where ItemID = ?",
             [iid]
         )
     }
@@ -25,24 +25,21 @@ module.exports = class Item {
         return db.execute("select * from Item");
     }
 
-    static count() {
+    static count(){
         return db.execute('select count(*) from Item');
     }
-
     static findById(iid) {
         return db.execute("select * from Item where ItemID = ?",
             [iid]);
     }
-
-    static runItemQuery() {
+    static runItemQuery(){
         return db.execute("select i.ItemID, i.ItemName, SUM(i.ItemPrice * s.Quantity) AS TotalSales" +
             " FROM Item i" +
             " Left JOIN Sales s ON s.ItemID = i.ItemID" +
             " GROUP BY i.ItemID" +
             " order by TotalSales DESC")
     }
-
-    static runTop5ItemQuery() {
+    static runTop5ItemQuery(){
         return db.execute("select i.ItemName, SUM(i.ItemPrice * s.Quantity) AS TotalSales" +
             " FROM Item i" +
             " Left JOIN Sales s ON s.ItemID = i.ItemID" +
