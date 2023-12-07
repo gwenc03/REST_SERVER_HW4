@@ -7,6 +7,12 @@ router.get( '/customers', hardwareController.getCustomers);
 router.get('/items', hardwareController.getItems);
 router.get( '/items/:id', hardwareController.getItemDetails);
 router.get('/sales', hardwareController.getSales);
+router.get('/customers/:id', hardwareController.getCustomerDetails);
+router.delete('/customers/:id', hardwareController.deleteCustomer);
+router.delete('/items/:id', hardwareController.deleteItem);
+router.post('/items', hardwareController.postNewItem);
+router.post('/customers', hardwareController.postNewCustomer);
+router.get('/homepage', hardwareController.getHomePage);
 // router.get('/items/:id', hardwareController.getUpdatedItem);
 
 // router.get('/showSales', hardwareController.getSales);
