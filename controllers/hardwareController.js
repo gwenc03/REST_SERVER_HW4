@@ -70,6 +70,18 @@ exports.getItemDetails = ( req, res, next ) => {
         console.log( err );
     })
 }
+// exports.getUpdatedItem = ( req, res, next ) => {
+//     let id = req.params.id;
+//     console.log('in update item')
+//     Item.findById(id)
+//         .then ((rows, ) => {
+//             console.log("ROWS get updated item =>");
+//             res.status(200).json( rows[0][0]);
+//         }).catch( err => {
+//         console.log("DB Error=>");
+//         console.log(err);
+//     })
+// }
 exports.getSales = (req, res, next) => {
     // Item.runItemQuery()
     Sale.runSaleQuery()
