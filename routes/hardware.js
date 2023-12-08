@@ -13,6 +13,9 @@ router.delete('/items/:id', hardwareController.deleteItem);
 router.post('/items', hardwareController.postNewItem);
 router.post('/customers', hardwareController.postNewCustomer);
 router.get('/homepage', hardwareController.getHomePage);
+router.put('/items/:id', hardwareController.postUpdatedItem);
+router.put('/customers/:id', hardwareController.postUpdatedCustomer);
+
 // router.get('/items/:id', hardwareController.getUpdatedItem);
 
 // router.get('/showSales', hardwareController.getSales);

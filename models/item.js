@@ -21,6 +21,11 @@ module.exports = class Item {
         )
     }
 
+    update (){
+        return db.execute( "UPDATE item SET ItemName = ?, ItemPrice = ?  WHERE ItemID = ?",
+            [this.ItemName, this.ItemPrice, this.ItemID] );
+    }
+
     static fetchAll() {
         return db.execute("select * from Item");
     }

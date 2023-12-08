@@ -163,6 +163,32 @@ exports.getHomePage = (req,res, next) => {
         res.status(500).json({error: `Failed to add customer; ${err.message}`})
     })
 }
+exports.postUpdatedItem = (req, res, next) => {
+    let id = req.body.ItemID;
+    let name = req.body.ItemName;
+    let price = req.body.ItemPrice;
+    const item = new Item(id, name, price);
+    item.update()
+        .then(() => {
+            res.status(200).json({message: 'item updated '});
+        }).catch(err => {
+        console.error(err);
+        res.status(500).json({error: `Failed to update item; ${err.message}`});
+    });
+}
+exports.postUpdatedCustomer = (req, res, next) => {
+    let id = req.body.CustomerID;
+    let name = req.body.CustomerName;
+    let email = req.boyd.CustomerEmail;
+    const customer = new Customer(id, name, email);
+    customer.update()
+        .then(() => {
+            res.status(200).json({message: 'customer updated '});
+        }).catch(err => {
+        console.error(err);
+        res.status(500).json({error: `Failed to update customer; ${err.message}`});
+    });
+}
 //
 // exports.getSales = (req, res, next) => {
 //     Sale.runSaleQuery()
