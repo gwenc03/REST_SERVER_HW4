@@ -164,10 +164,11 @@ exports.getHomePage = (req,res, next) => {
     })
 }
 exports.postUpdatedItem = (req, res, next) => {
-    let id = req.body.ItemID;
+    let id = req.params.id
     let name = req.body.ItemName;
     let price = req.body.ItemPrice;
     const item = new Item(id, name, price);
+    // console.log("in postupdateditem:" + id)
     item.update()
         .then(() => {
             res.status(200).json({message: 'item updated '});
@@ -177,10 +178,11 @@ exports.postUpdatedItem = (req, res, next) => {
     });
 }
 exports.postUpdatedCustomer = (req, res, next) => {
-    let id = req.body.CustomerID;
+    let id = req.params.id;
     let name = req.body.CustomerName;
-    let email = req.boyd.CustomerEmail;
+    let email = req.body.CustomerEmail;
     const customer = new Customer(id, name, email);
+    console.log("in postupdatedcustomer:" + id)
     customer.update()
         .then(() => {
             res.status(200).json({message: 'customer updated '});

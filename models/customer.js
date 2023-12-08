@@ -27,9 +27,9 @@ module.exports = class Customer {
     static count(){
         return db.execute('select count(*) from Customer');
     }
-    update ( cid ){
+    update (){
         return db.execute( "UPDATE Customer SET CustomerName = ?, CustomerEmail = ?  WHERE CustomerID = ?",
-            [this.CustomerName, this.CustomerEmail, cid ] );
+            [this.CustomerName, this.CustomerEmail, this.CustomerID ] );
     }
     static runCustomerQuery(){
         return db.execute("select c.CustomerID, c.CustomerName, c.CustomerEmail, SUM(i.ItemPrice * s.Quantity) AS TotalSales" +

@@ -22,7 +22,7 @@ module.exports = class Item {
     }
 
     update (){
-        return db.execute( "UPDATE item SET ItemName = ?, ItemPrice = ?  WHERE ItemID = ?",
+        return db.execute( "UPDATE Item SET ItemName = ?, ItemPrice = ?  WHERE ItemID = ?",
             [this.ItemName, this.ItemPrice, this.ItemID] );
     }
 
